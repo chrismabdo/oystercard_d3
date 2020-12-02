@@ -91,7 +91,7 @@ let(:exit_station){ double :station }
       subject.top_up(10)
       subject.touch_in(entry_station)
       subject.touch_out(exit_station)
-      expect(subject.history).to include( :in => entry_station, :out => exit_station )
+      expect(subject.history).to include( :entry_station => entry_station, :exit_station => exit_station )
     end
   end
 end
