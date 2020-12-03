@@ -1,14 +1,14 @@
-require_relative "journey"
-require_relative "oystercard"
+require "journey"
 
 class JourneyLog
-  attr_reader :journey_class, :entry_station
-
-  def initialize(journey_class = Journey.new(entry_station))
+attr_reader :entry_station
+  def initialize(journey_class: )
     @journey_class = journey_class
   end
 
-  def starts(entry_station)
-    journey_class
+  def start(entry_station, journey_class = Journey)
+    @journey_class.new(entry_station)
   end
+
+  
 end
