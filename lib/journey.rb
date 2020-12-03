@@ -6,8 +6,9 @@ class Journey
     MINIMUM_FARE = 1
     attr_reader :entry_station, :exit_station, :complete
 
-    def initialize(entry_station = nil)
+    def initialize(entry_station = nil, exit_station = nil)
       @entry_station = entry_station
+      @exit_station = exit_station
       @complete = false
     end
 
