@@ -25,15 +25,6 @@ let(:exit_station){ double :station }
     end
   end
 
-  # describe "#deduct" do
-  #   it { is_expected.to respond_to(:deduct).with(1).argument }
-
-  #   it 'should deduct amount from balance' do
-  #     subject.top_up(20)
-  #     expect(subject.deduct(5)).to eq 15
-  #   end
-  # end
-
   describe "#touch_in" do
     it { is_expected.to respond_to(:touch_in).with(1).argument }
 
@@ -46,10 +37,7 @@ let(:exit_station){ double :station }
       subject.top_up(0.5)
       expect { subject.touch_in(entry_station) }.to raise_error "balance under £#{Oystercard::MINIMUM_AMOUNT}"
     end
-
-   
   end
-
 
   describe "#touch_out" do
     it { is_expected.to respond_to(:touch_out).with(1).argument }
@@ -67,12 +55,5 @@ let(:exit_station){ double :station }
     it 'starts with an empty list of journeys' do
       expect(subject.history).to be_empty
     end
-
-    # it 'displays history of journeys' do
-    #   subject.top_up(10)
-    #   subject.touch_in(entry_station)
-    #   subject.touch_out(exit_station)
-    #   expect(subject.history).to include( :entry_station => entry_station, :exit_station => exit_station )
-    # end
   end
 end

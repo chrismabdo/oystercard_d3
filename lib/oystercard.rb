@@ -10,7 +10,6 @@ class Oystercard
 
   def initialize
     @balance = 0
-#    @entry_station = nil
     @history = []
   end
 
@@ -27,13 +26,9 @@ class Oystercard
     @new_journey
   end
 
-#  def in_journey?
-#    @entry_station != nil
-#  end
-
   def touch_out(exit_station)
     @new_journey.finish(exit_station)
-    deduct(MINIMUM_AMOUNT)
+    deduct
     @exit_station = exit_station
     add_to_history
     @entry_station = nil
@@ -42,8 +37,8 @@ class Oystercard
 
   private
 
-  def deduct(amount)
-    @balance -= amount
+  def deduct
+    @balance -= @new_journey.fare
   end
 
   def add_to_history
